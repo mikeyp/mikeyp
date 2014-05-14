@@ -1,5 +1,14 @@
-<blockquote><p>When you do things right, people won’t be sure you’ve done anything at all.</p><p>— Godfellas
-<small>(<a href="http://en.wikipedia.org/wiki/Godfellas">Futurama episode</a>)</small></p></blockquote>
+---
+title: Meet Mr. Cellophane
+subtitle: Ladies and gentleman, you are about to read a story of web development, audio engineering, humility and user experience
+kind: article
+created_at: 2013-06-11 20:12:15 -0700
+author: mdp
+---
+<blockquote>
+  <p>When you do things right, people won’t be sure you’ve done anything at all.</p>
+  <br />
+<p><small>— Godfellas (<a href="http://en.wikipedia.org/wiki/Godfellas">Futurama episode</a>)</small></p></blockquote>
 
 Long before I turned my hobby of software development into a career, I spent my days (and often nights and weekends) as a professional audio engineer. I wasn’t much of one for rock-n-roll shows, instead enjoying the challenges of corporate meetings, parties and other special events. A routine moment might find me turning knobs and pushing faders at a celebrity wedding, an awards show, a high school commencement, or even a large conferences in a hotel or arena with anywhere from 50 to 15,000 people in attendance for their big event.
 

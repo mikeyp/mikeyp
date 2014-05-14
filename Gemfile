@@ -9,6 +9,6 @@ gem 'compass'
 # Guard support
 gem 'guard'
 gem 'guard-nanoc'
-gem 'guard-compass'
+gem 'guard-shell'
 gem 'guard-livereload'
 gem 'guard-webrick', :github => 'mikemcquaid/guard-webrick', :branch => 'support-newer-guard'

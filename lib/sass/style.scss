@@ -1,6 +1,5 @@
-@import 'layout.scss';
-@import 'widgets.scss';
+@import "bourbon/bourbon";
 
-body {
-  background: #EEE;
-}
+@import 'layout';
+@import 'styles';
+@import 'elements';

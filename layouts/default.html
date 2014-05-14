@@ -1,16 +1,131 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>awesome site - <%= @item[:title] %></title>
-    <link rel="stylesheet" href="/css/style.css">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title><%= @config[:site_name] %> - <%= @item[:title] %></title>
+  <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+  <meta name="author" content="<%= author_info(@item, 'name') %>">
 
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
-  </head>
-  <body>
-    <div id="main">
-      <%= yield %>
-    </div>
-  </body>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script type="text/javascript" src="//use.typekit.net/hxi0niv.js"></script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3252696-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+
+
+</head>
+<body>
+  <div id="site">
+    <article class="wrapper">
+
+      <div class="banner_container">
+        <img alt="Deskandcomputer_low_large" class="user_banner animated fadeInDown" src="https://silvrback.s3.amazonaws.com/uploads/33f5f162-867d-477d-971b-a0772b0c7a86/deskandcomputer_low_large.jpg" style="display: block;">
+      </div>
+
+      <div class="shade" style="display:block"></div>
+
+      <div class="page" style="position:relative; z-index:10">
+        <div class="big_article_header">
+          <h1 class="header_title header_background_text"><%= @item[:title] %></h1>
+          <h3 class="header_subtitle header_background_text"><i><%= @item[:subtitle] %></i></h3>
+
+          <div class="pic_and_name">
+            <a href="<%= author_info(@item, 'url') %>">
+              <img alt="<%= author_info(@item, 'name') %>" class="new_bio_pic" src="<%= author_info(@item, 'image') %>">
+            </a>
+            <div class="name_link">
+              <a href="<%= author_info(@item, 'url') %>" class="header_background_text"><%= author_info(@item, 'name') %></a> 
+            </div>  
+          </div>        
+        </div>
+      </div>
+
+      <div class="article-body page-body">
+        <div class="page">
+          <div class="article-padding page-content">
+            
+            <%= yield %>
+            
+            <div class="clear"></div>
+            
+            <p class="name_and_tag">
+              <a href="<%= author_info(@item, 'url') %>"><%= author_info(@item, 'name') %></a>
+              –  <i class="author_tagline"><%= author_info(@item, 'description') %></i>
+            </p>
+
+            <div class="entry_meta_area">
+              <p class="kaia_actions">
+                <span class="entry_date"><%= article_date(@item) %></span> 
+  
+      
+                <span class="share_social">
+                  <a href="http://www.twitter.com/share?url=<%= url_for(@item) %>&amp;text=<%= @item[:title] %>" title="Share this post on Twitter" data-lang="en" onclick="return !window.open(this.href, 'Twitter', 'width=640,height=300')"><i class="fa fa-twitter"></i></a>
+
+                  <a target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(@item) %>" title="Share this post on Facebook"><i class="fa fa-facebook"></i></a>
+
+                  <a href="http://plus.google.com/share?url=<%= url_for(@item) %>" target="_blank" onclick="return !window.open(this.href, 'Google +', 'width=640,height=300')" title="Share this post on Google +"><i class="last_link fa fa-google-plus"></i></a>
+                </span>
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative; z-index:100">
+        <div class="page footer_section">
+          <div class="align_center read_next">
+            <h2 class="read_next_btn"><a href="/start-with-the-ui" class="read_next_link" title="Read Next">Read Next: Start with the User Interface</a>
+            </h2>
+          </div>
+
+          <div class="bottom_menu_links align_center header_background_text">
+            <ul>
+              <li><a href="/">Blog Home</a></li>
+              <li><a href="/archive">Archive</a></li>
+              <li><a href="/bio">Bio</a></li>
+              <li><a href="/feed">RSS</a></li>
+            </ul> 
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="page">
+            <div class="bottom_footer_area">
+              <p class="align_center header_background_text">
+
+               You can also find me on <a href="<%= author_info(@item, 'twitter_url') %>" class="personal_social_links">Twitter</a> and <a href="<%= author_info(@item, 'github_url') %>" class="personal_social_links">Github</a>. Get in touch via <a href="mailto:<%= author_info(@item, 'email') %>" class="personal_social_links">Email</a>. 
+               <br>
+               © 2004-<%= DateTime::now.strftime('%Y') %> <a href="<%= @config[:base_url] %>"><%= @config[:site_name] %></a><br><br>
+               
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+
+    </article>
+  </div>
+</body>
 </html>

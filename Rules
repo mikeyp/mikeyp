@@ -15,6 +15,18 @@ require 'pp'
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+preprocess do
+  def author_lookup
+    @items.each do |item|
+      if item[:author] && File.file?("authors/#{item[:author]}.yaml")
+        item[:author_info] = YAML.load(File.read("authors/#{item[:author]}.yaml"))
+      end
+    end
+  end
+
+  author_lookup
+end
+
 compile '/blog/*', rep: :new do
   if item[:extension] == 'md'
     filter :kramdown

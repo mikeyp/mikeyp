@@ -1,7 +1,8 @@
 --- 
-layout: post
 title: "Standup Comedy for Web Developers"
-date: 2012-07-09 20:12:10 -0700
+created_at: 2012-07-09 20:12:10 -0700
+author: mdp
+kind: article
 tags:
 ---
 <br />

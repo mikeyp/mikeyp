@@ -2,7 +2,7 @@ task :default => :guard
  
 
 task :build do
-  bundle 'compass compile -e production --force -s compressed'
+  bundle 'sassc -t compressed lib/sass/style.scss > content/css/style.css'
   bundle 'nanoc'
 end
  
