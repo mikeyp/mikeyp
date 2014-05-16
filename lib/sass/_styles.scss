@@ -29,6 +29,26 @@ li {
 
 }
 
+.fadeInDown {
+  @include animation-name(fadeInDown);
+}
+
+@include keyframes(fadeInDown) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(-20px));
+  }
+  100% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}
+
+.animated {
+  @include animation-duration(1s);
+  @include animation-fill-mode(both);
+}
+
 .page {
   width: 75%;
   margin: 0 auto;

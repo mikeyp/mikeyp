@@ -32,7 +32,9 @@ compile '/blog/*', rep: :new do
     filter :kramdown
     layout 'default'
   elsif item[:extension] == 'css'
-    # don’t filter stylesheets
+    # don’t filter stylesheets    
+  elsif item[:extension] == 'js'
+    # don’t filter scripts
   elsif item.binary?
     # don’t filter binary items
   else
@@ -48,6 +50,8 @@ compile '*' do
     layout 'default'
   elsif item[:extension] == 'css'
     # don’t filter stylesheets
+  elsif item[:extension] == 'js'
+    # don’t filter scripts
   elsif item.binary?
     # don’t filter binary items
   else
@@ -65,6 +69,9 @@ route '*' do
   if item[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.css
     item.identifier.chop + '.css'
+  elsif item[:extension] == 'js'
+    # Write item with identifier /foo/ to /foo.css
+    item.identifier.chop + '.js'
   elsif item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
